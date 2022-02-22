@@ -1,5 +1,6 @@
 <?php
-
+use App\Models\Song;
+use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {return view('welcome');});
 Route::get('test', function () {return view('Test');});
-Route::get('test/2', function () {return view('test2');});
+Route::get('test/2', function () {return view('test2', ['songs' => Song::all()]);});

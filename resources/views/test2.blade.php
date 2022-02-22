@@ -6,6 +6,12 @@
         <?php
             Session::put(0, rand(0,100));
         ?>
+        @foreach($songs as $song)
+            <div>
+                <div>{{$song->name}}</div>
+                <div>{{$song->duration}}</div>
+            </div>
+        @endforeach
         @include('navigate')
     </body>
 

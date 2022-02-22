@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        DB::table('genres')->insert([
+            'name' => 'Pop',
+        ]);
+        DB::table('genres')->insert([
+            'name' => 'Rock',
+        ]);
+        DB::table('genres')->insert([
+            'name' => 'Alt-pop',
+        ]);
+        DB::table('genres')->insert([
+            'name' => 'Jazz',
+        ]);
     }
 }
