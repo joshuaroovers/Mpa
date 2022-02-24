@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {return view('welcome');});
 Route::get('test', function () {return view('Test');});
-Route::get('test/2', function () {return view('test2', ['songs' => Song::all()]);});
+Route::get('test/2', function () {return view('test2', ['songs' => Song::all()],['genres' => Genre::all()]);});
+Route::get('genreOverview', function () {return view('genreOverview', ['genres' => Genre::all()]);});

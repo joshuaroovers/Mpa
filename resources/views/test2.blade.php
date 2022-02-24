@@ -12,7 +12,12 @@
                 <div>{{$song->duration}}</div>
             </div>
         @endforeach
-        @include('navigate')
+        @foreach($genres as $genre)
+            <div>
+                <div>{{$genre->name}}</div>
+            </div>
+        @endforeach
+        @include('components/navigate')
     </body>
 
 </html>

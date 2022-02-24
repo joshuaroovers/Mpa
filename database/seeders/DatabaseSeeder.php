@@ -16,15 +16,23 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('genres')->insert([
             'name' => 'Pop',
+            'theme' => 'hotpink',
         ]);
         DB::table('genres')->insert([
             'name' => 'Rock',
+            'theme' => 'crimson',
         ]);
         DB::table('genres')->insert([
             'name' => 'Alt-pop',
+            'theme' => 'lightseagreen',
         ]);
         DB::table('genres')->insert([
             'name' => 'Jazz',
+            'theme' => 'rebeccapurple',
+        ]);
+        DB::table('genres')->insert([
+            'name' => 'Country',
+            'theme' => 'darkorange',
         ]);
     }
 }

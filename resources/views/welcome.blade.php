@@ -19,6 +19,6 @@
     <body>
     {{Session::get(0,'expired!')}}
         <h1 style="font-size: 160px; color: cornflowerblue; width: 50%; margin: auto; margin-top: 200px; text-align: center;">Welcome</h1>
-            @include('navigate')
+            @include('components/navigate')
     </body>
 </html>

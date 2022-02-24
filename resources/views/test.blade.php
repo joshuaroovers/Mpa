@@ -6,7 +6,7 @@
     <body>
         <div>This should clear the session/cache</div>
         {{Session::forget(0);}}
-        @include('navigate')
+        @include('components/navigate')
     </body>
 
 </html>
