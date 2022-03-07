@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'theme' => 'crimson',
         ]);
         DB::table('genres')->insert([
-            'name' => 'Alt-pop',
+            'name' => 'Indie',
             'theme' => 'lightseagreen',
         ]);
         DB::table('genres')->insert([
@@ -32,7 +32,30 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('genres')->insert([
             'name' => 'Country',
-            'theme' => 'darkorange',
+            'theme' => 'coral',
+        ]);
+        
+
+
+        DB::table('songs')->insert([
+            'name' => 'Try again tomorrow',
+            'artist' => 'liana flores',
+            'duration' => '181',
+        ]);
+        DB::table('songs')->insert([
+            'name' => 'Stay Soft',
+            'artist' => 'Mitski',
+            'duration' => '226',
+        ]);
+        DB::table('songs')->insert([
+            'name' => 'Heat Lightning',
+            'artist' => 'Mitski',
+            'duration' => '173',
+        ]);
+        DB::table('songs')->insert([
+            'name' => 'mona lisa',
+            'artist' => 'mxmtoon',
+            'duration' => '191',
         ]);
     }
 }

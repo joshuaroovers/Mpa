@@ -7,11 +7,12 @@
     <body>
         @include('components/navigate')
 
-        @foreach($genres as $genre)
-            <a href="#"  class="genreButton" style="background-color: {{$genre->theme}}">
-                <div class="genreTitle">{{$genre->name}}</div>
-            </a>
-        @endforeach
-       
+        <div style="width:75%; margin-left: 12.5%; padding-top: 20px;">
+            @foreach($genres as $genre)
+                <a href="#"  class="genreButton" style="background-color: {{$genre->theme}}">
+                    <div class="genreTitle">{{$genre->name}}</div>
+                </a>
+            @endforeach
+        </div>
     </body>
 </html>

@@ -17,8 +17,8 @@
         </style>
     </head>
     <body>
-    {{Session::get(0,'expired!')}}
+        @include('components/navigate')
         <h1 style="font-size: 160px; color: cornflowerblue; width: 50%; margin: auto; margin-top: 200px; text-align: center;">Welcome</h1>
-            @include('components/navigate')
+        {{Session::get(0,'expired!')}}
     </body>
 </html>
