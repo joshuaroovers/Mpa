@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="/app.css">
 
         <style>
             body {
@@ -20,5 +20,6 @@
         @include('components/navigate')
         <h1 style="font-size: 160px; color: cornflowerblue; width: 50%; margin: auto; margin-top: 200px; text-align: center;">Welcome</h1>
         {{Session::get(0,'expired!')}}
+        
     </body>
 </html>

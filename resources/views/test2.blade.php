@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="/app.css">
+    </head>
     <body>
+        @include('components/navigate')
         <div>This should have stored a number in the cache/session</div>
         <?php
             Session::put(0, rand(0,100));
@@ -17,7 +20,6 @@
                 <div>{{$genre->name}}</div>
             </div>
         @endforeach
-        @include('components/navigate')
+        
     </body>
-
 </html>

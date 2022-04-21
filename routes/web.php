@@ -2,6 +2,8 @@
 use App\Models\Song;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\SongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {return view('welcome');});
 Route::get('test', function () {return view('Test');});
-Route::get('test/2', function () {return view('test2', ['songs' => Song::all()],['genres' => Genre::all()]);});
-Route::get('genreOverview', function () {return view('genreOverview', ['genres' => Genre::all()]);});
+Route::get('test2', function () {return view('test2', ['songs' => Song::all()],['genres' => Genre::all()]);});
+Route::get('genreOverview', [GenreController::class, 'index']);//doesn't feel right to have the controller redirect the view.. but that's right apparently
+//Route::get('genreOverview/{{genre_name}}');

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylsheet" href="/app.css"></link>
+        <link rel="stylesheet" href="/app.css">
     </head>
     <body>
+        @include('components/navigate')
         <div>This should clear the session/cache</div>
         {{Session::forget(0);}}
-        @include('components/navigate')
+        
     </body>
-
 </html>
