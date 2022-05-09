@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use App\Models\Genre;
+use App\Models\Artist;
 use Illuminate\Http\Request;
 
 class SongController extends Controller
@@ -14,7 +16,11 @@ class SongController extends Controller
      */
     public function index()
     {
-        //
+        return view('songs',
+            ['songs' => Song::all(),
+            'themes' => Genre::select('theme')->get(),
+            'artists' => Artist::select('name')->orderBy('id','asc')->get(),
+        ]);
     }
 
     /**

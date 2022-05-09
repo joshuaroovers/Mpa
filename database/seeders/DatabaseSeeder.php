@@ -39,23 +39,46 @@ class DatabaseSeeder extends Seeder
 
         DB::table('songs')->insert([
             'name' => 'Try again tomorrow',
-            'artist' => 'liana flores',
+            'artist_id' => '2',
             'duration' => '181',
+            'genre_id' => '3',
         ]);
         DB::table('songs')->insert([
             'name' => 'Stay Soft',
-            'artist' => 'Mitski',
+            'artist_id' => '1',
             'duration' => '226',
+            'genre_id' => '3',
         ]);
         DB::table('songs')->insert([
             'name' => 'Heat Lightning',
-            'artist' => 'Mitski',
+            'artist_id' => '1',
             'duration' => '173',
+            'genre_id' => '3',
         ]);
         DB::table('songs')->insert([
             'name' => 'mona lisa',
-            'artist' => 'mxmtoon',
+            'artist_id' => '3',
             'duration' => '191',
+            'genre_id' => '3',
+        ]);
+        DB::table('songs')->insert([
+            'name' => 'Ready Now',
+            'artist_id' => '4',
+            'duration' => '181',
+            'genre_id' => '3',
+        ]);
+
+        DB::table('artists')->insert([
+            'name' => 'Mitski',
+        ]);
+        DB::table('artists')->insert([
+            'name' => 'liana flores',
+        ]);
+        DB::table('artists')->insert([
+            'name' => 'mxmtoon',
+        ]);
+        DB::table('artists')->insert([
+            'name' => 'dodie',
         ]);
     }
 }
