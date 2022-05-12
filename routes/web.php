@@ -18,8 +18,10 @@ use App\Http\Controllers\SongController;
 
 //LOOK AT TRELLO WHEN LOST, WE CAN DO THIS!
 Route::get('/', function () {return view('welcome');});
-Route::get('test', function () {return view('Test');});
-Route::get('test2', function () {return view('test2', ['songs' => Song::all()],['genres' => Genre::all()]);});
-Route::get('genres', [GenreController::class, 'index']);//doesn't feel right to have the controller redirect the view.. but that's right apparently
-//Route::get('genreOverview/{{genre_name}}');
-Route::get('songs', [SongController::class, 'index']);
+Route::get('/test', function () {return view('Test');});
+Route::get('/test2', function () {return view('test2', ['songs' => Song::all()],['genres' => Genre::all()]);});
+Route::get('/genres', [GenreController::class, 'index']);//doesn't feel right to have the controller redirect the view.. but that's right apparently
+Route::get('/genres/{name}', [SongController::class, 'songsInGenre']);
+Route::get('/songs', [SongController::class, 'index']);
+Route::get('/artists/{artist_id}', [SongController::class, 'songsByArtist']);
+Route::get('/songs/{song_id}', [SongController::class, 'songInfo']);
