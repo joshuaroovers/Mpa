@@ -13,18 +13,21 @@
             </div>
             
             <div style="padding: 15px 0px; width: 100%; border: 1px solid {{$genre[0]->theme}}; border-radius: 23px;">
-                    <div style="width: 100%; text-align: center; display: inline-block">by {{$artist[0]->name}}</div>
+                <div style="width: 50%; margin-left:25%; display: inline-block; margin-bottom: 5px; border: 1px solid {{$genre[0]->theme}};">
+                
+                    <div style="text-align: center; display: inline-block; padding: 15px 0px; width: 100%;">
+                        by {{$artist[0]->name}}
+                    </div>
+                    <div style="text-align: center; display: inline-block; padding: 15px 0px; width: 100%;">
+                        duration: {{floor($song[0]->duration/60) . ':' . str_pad( ($song[0]->duration/60 - floor($song[0]->duration/60) )*60 ,2,'0',STR_PAD_LEFT) }}
+                    </div>
+                
+                </div>
             </div>
             
             
             <div> 
-                <div style="height:48px; display: inline-block; margin-bottom: 5px; border: 1px solid {{$genre[0]->theme}};">
-                    
-                    <div style="display: inline-block; padding: 15px 0px; width: 500px">
-
-                    </div>
-
-                </div>
+                
             </div>
             
         </div>
