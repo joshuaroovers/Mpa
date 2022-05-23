@@ -2,6 +2,15 @@ body{
     margin: 0px;
     font-family: sans-serif;
 }
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-track{
+    background: none;
+}
+::-webkit-scrollbar-thumb{
+    background: gainsboro;
+}
 a{
     color: inherit;
     text-decoration: none;
