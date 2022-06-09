@@ -1,24 +1,29 @@
 <div style="position:fixed; bottom: 0; right: 0; width: 14%; border:gray 1px solid; border-radius: 10px 0px 0px 0px;">
-    <div style="background-color: gray; border-radius: 10px 0px 0px 0px; height: 20px; padding: 10px;">
-        <div style="float:left;">{{count($songs)}}</div>
-        <div style="float:right;">XX:xx</div>
+    <div style="display:flex; background-color: gray; border-radius: 10px 0px 0px 0px; height: 20px; padding: 10px;">
+        <div style="width: 30%; display:inline-block;">{{count($session)}}</div>
+        @php
+            $totalDuration = 0;
+            foreach($session as $item){
+            $totalDuration = $totalDuration + $songsOrdId[$item -1]->duration;}
+        @endphp
+        <a href="#" style="width: 40%; text-align: center; background-color: lightskyblue; display: inline-block;  padding: 5px 0px 5px 0px; margin-top: -5px; height: 20px; border-radius: 7px;">save</a>
+        <div title='{{$totalDuration}} seconds' style="width: 30%; text-align: end; display:inline-block;">{{floor($totalDuration/60) . ':' . str_pad( $totalDuration - (floor($totalDuration/60)*60) ,2,'0',STR_PAD_LEFT) }}</div>
     </div>
-    <div style="max-height: 600px; overflow-y: scroll;">
-        <div style="display:flex; padding: 10px 5px 10px 10px;">
-            <div style="display: inline-block; text-overflow: ellipsis; overflow-x: hidden; white-space: nowrap; width: 70%; height: 20px" title="">You</div>
-            <div style="display: inline-block; width: 30%; text-align: center;">du:ra</div>
+    <div style="max-height: 600px; overflow-y: scroll; overflow-x: hidden;">
+        @php($loopStep = 0)
+        @foreach($session as $item)
+        
+        <div class="playlistItem" style="display:flex; position:relative; padding: 10px 5px 10px 10px;">
+            <div style="display: inline-block; text-overflow: ellipsis; overflow-x: hidden; white-space: nowrap; width: 70%; height: 20px" >{{$songsOrdId[$item -1]->name}}</div>
+            <div style="display: inline-block; width: 30%; text-align: center;">{{floor($songsOrdId[$item -1]->duration/60) . ':' . str_pad( $songsOrdId[$item -1]->duration - (floor($songsOrdId[$item -1]->duration/60)*60) ,2,'0',STR_PAD_LEFT) }}</div>
+            <div title="{{$songsOrdId[$item -1]->name}}" style="width: calc(100% - 10px); height: 20px; position: absolute; background-color: rgba(200,200,200,0.4); margin: -10px 0px 0px -10px;  padding: 10px 5px 10px 10px;">
+                <a href='/sessionDeleteItem/{{$loopStep}}' style="width: 30%; margin-top: -7px; margin-left: calc(35% - 12px); border-radius: 7px; padding: 7px; background-color: rgb(250,0,0); text-align: center;">delete</a>
+            </div>
         </div>
-        <div style="display:flex; padding: 10px 5px 10px 10px;">
-            <div style="display: inline-block; text-overflow: ellipsis; overflow-x: hidden; white-space: nowrap; width: 70%; height: 20px" title="">creature</div>
-            <div style="display: inline-block; width: 30%; text-align: center;">du:ra</div>
-        </div>
-        <div style="display:flex; padding: 10px 5px 10px 10px;">
-            <div style="display: inline-block; text-overflow: ellipsis; overflow-x: hidden; white-space: nowrap; width: 70%; height: 20px" title="">secret for the mad</div>
-            <div style="display: inline-block; width: 30%; text-align: center;">du:ra</div>
-        </div>
-        <div style="display:flex; padding: 10px 5px 10px 10px;">
-            <div style="display: inline-block; text-overflow: ellipsis; overflow-x: hidden; white-space: nowrap; width: 70%; height: 20px" title="I like (the idea of) you">I like (the idea of) you</div>
-            <div style="display: inline-block; width: 30%; text-align: center;">du:ra</div>
-        </div>
+        @php($loopStep++)
+        @endforeach
+
+        
+
     </div>
 </div>

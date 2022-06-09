@@ -4,6 +4,7 @@ use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/genres/{name}', [SongController::class, 'songsInGenre']);
 Route::get('/songs', [SongController::class, 'index']);
 Route::get('/artists/{artist_id}', [SongController::class, 'songsByArtist']);
 Route::get('/songs/{song_id}', [SongController::class, 'songInfo']);
+Route::get('/sessionAdd/{song_id}', [SessionController::class, 'addSongtoSession']);
+Route::get('/sessionDeleteItem/{song_index}', [SessionController::class, 'removeSongFromSession']);

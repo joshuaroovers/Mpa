@@ -52,3 +52,9 @@ a{
     position: absolute;
     text-align: center;
 }
+.playlistItem :last-child{
+    display: none;
+}
+.playlistItem:hover :last-child{
+    display: block;
+}

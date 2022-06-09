@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\Genre;
 use App\Models\Artist;
+use App\Models\SessionPlaylist;
 use Illuminate\Http\Request;
 
 class SongController extends Controller
@@ -18,9 +19,11 @@ class SongController extends Controller
     {
         return view('songs',[
             'title' => array(array('name'=>'All Songs','theme'=>'gray')),
-            'songs' => Song::select()->orderBy('name','asc')->get(),
+            'songsOrdAlph' => Song::select()->orderBy('name','asc')->get(),
+            'songsOrdId' => Song::select()->orderBy('id','asc')->get(),
             'themes' => Genre::select('theme')->get(),
             'artists' => Artist::select('name')->orderBy('id','asc')->get(),
+            'session' => SessionPlaylist::getPlaylist(),
         ]);
     }
 
@@ -30,9 +33,11 @@ class SongController extends Controller
         
         return view('songs', [
             'title' => Genre::where('name', $slug)->get(),
-            'songs' => Song::where('genre_id', $id[0]->id)->get(),
+            'songsOrdAlph' => Song::where('genre_id', $id[0]->id)->orderBy('name','asc')->get(),
+            'songsOrdId' => Song::select()->orderBy('id','asc')->get(),
             'themes' => Genre::select('theme')->get(),
             'artists' => Artist::select('name')->orderBy('id','asc')->get(),
+            'session' => SessionPlaylist::getPlaylist(),
         ]);
     }
 
@@ -41,9 +46,11 @@ class SongController extends Controller
 
         return view('songs', [
             'title' => Artist::where('id', $slug)->get(),
-            'songs' => Song::where('artist_id', $slug)->get(),
+            'songsOrdAlph' => Song::where('artist_id', $slug)->orderBy('name','asc')->get(),
+            'songsOrdId' => Song::select()->orderBy('id','asc')->get(),
             'themes' => Genre::select('theme')->get(),
             'artists' => Artist::select('name')->orderBy('id','asc')->get(),
+            'session' => SessionPlaylist::getPlaylist(),
         ]);
     }   
     
@@ -59,6 +66,8 @@ class SongController extends Controller
             'artist' => Artist::where('id', $artistId[0]->artist_id)->get(),
         ]);
     }  
+
+    
 
     /**
      * Show the form for creating a new resource.
