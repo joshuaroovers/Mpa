@@ -5,6 +5,7 @@
         <script src="https://kit.fontawesome.com/89f724c9b8.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        
         @include('components/navigate')
         
         <div style="width:70%; margin-left: 15%; padding-top: 20px;">
@@ -33,7 +34,7 @@
                     </div>
 
                     <div style="display: inline-block; padding: 15px 0px; width: 10%; border-left: 1px solid {{$themes[$song->genre_id -1]->theme}};">
-                        <span style="width: 100%; text-align: center; display: inline-block">{{floor($song->duration/60) . ':' . str_pad( ($song->duration/60 - floor($song->duration/60) )*60 ,2,'0',STR_PAD_LEFT) }}</span>
+                        <span style="width: 100%; text-align: center; display: inline-block">{{floor($song->duration/60) . ':' . str_pad( $song->duration - (floor($song->duration/60)*60) ,2,'0',STR_PAD_LEFT) }}</span>
                     </div>
 
                 </div>

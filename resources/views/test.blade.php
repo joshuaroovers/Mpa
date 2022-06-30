@@ -6,7 +6,7 @@
     <body>
         @include('components/navigate')
         <div>This should clear the session/cache</div>
-        {{Session::forget(0);}}
+        {{Session::forget('playlist');}}
         
     </body>
 </html>

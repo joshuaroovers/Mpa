@@ -19,7 +19,8 @@
     <body>
         @include('components/navigate')
         <h1 style="font-size: 160px; color: cornflowerblue; width: 50%; margin: auto; margin-top: 200px; text-align: center;">Welcome</h1>
-        {{Session::get(0,'expired!')}}
+        {{var_dump(Session::get('playlist','expired!'))}}
+        
         
     </body>
 </html>

@@ -7,7 +7,18 @@
         @include('components/navigate')
         <div>This should have stored a number in the cache/session</div>
         <?php
-            Session::put(0, rand(0,100));
+            
+            /* $testVar = array(rand(1,17),rand(1,17),rand(1,17),rand(1,17)); */
+            $testVar = array();
+            foreach($songs as $song)
+            {
+                $x = $song->id;
+                array_push($testVar, $x);
+            }
+            Session::put('playlist',$testVar);
+            Session::save();
+            $anotherTestVar = implode(',',$testVar);
+            echo('added ' . $anotherTestVar . ' to the session');
         ?>
         @foreach($songs as $song)
             <div>
